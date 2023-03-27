@@ -1,6 +1,7 @@
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:logistica/appointment/constants.dart';
 
 import 'logistic_filter_widget.dart';
 
@@ -38,7 +39,7 @@ class LogisticBodyWidget extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 16,
-                      backgroundColor: Colors.blueGrey[800]!,
+                      backgroundColor: kIndigoDark,
                     ),
                     Expanded(
                       child: Padding(
@@ -175,13 +176,13 @@ class LogisticBodyWidget extends StatelessWidget {
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               border: Border.all(
-                                color: Colors.blueGrey[800]!,
+                                color: kIndigoDark,
                                 width: 3,
                               ),
                             ),
                             padding: const EdgeInsets.all(4),
                             child: CircleAvatar(
-                              backgroundColor: Colors.blueGrey[800]!,
+                              backgroundColor: kIndigoDark,
                             ),
                           ),
                           const Flexible(
@@ -211,7 +212,7 @@ class LogisticBodyWidget extends StatelessWidget {
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     border: Border.all(
-                                      color: Colors.blueGrey[800]!,
+                                      color: kIndigoDark,
                                     ),
                                   ),
                                   child: const Center(
@@ -236,7 +237,7 @@ class LogisticBodyWidget extends StatelessWidget {
                               children: [
                                 CircleAvatar(
                                   radius: 16,
-                                  backgroundColor: Colors.blueGrey[800]!,
+                                  backgroundColor: kIndigoDark,
                                   foregroundColor: Colors.white,
                                   child: const Icon(
                                     Icons.route,
@@ -276,13 +277,13 @@ class LogisticBodyWidget extends StatelessWidget {
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               border: Border.all(
-                                color: Colors.blueGrey[800]!,
+                                color: kIndigoDark,
                                 width: 3,
                               ),
                             ),
                             padding: const EdgeInsets.all(4),
                             child: CircleAvatar(
-                              backgroundColor: Colors.blueGrey[800]!,
+                              backgroundColor: kIndigoDark,
                             ),
                           ),
                           // Flexible(
@@ -312,7 +313,7 @@ class LogisticBodyWidget extends StatelessWidget {
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     border: Border.all(
-                                      color: Colors.blueGrey[800]!,
+                                      color: kIndigoDark,
                                     ),
                                   ),
                                   child: const Center(
@@ -337,7 +338,7 @@ class LogisticBodyWidget extends StatelessWidget {
                               children: [
                                 CircleAvatar(
                                   radius: 16,
-                                  backgroundColor: Colors.blueGrey[800]!,
+                                  backgroundColor: kIndigoDark,
                                   foregroundColor: Colors.white,
                                   child: const Icon(
                                     Icons.route,
@@ -374,7 +375,7 @@ class LogisticBodyWidget extends StatelessWidget {
               },
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.blueGrey[800]!,
+                  color: kIndigoDark,
                   borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(8),
                     bottomRight: Radius.circular(8),

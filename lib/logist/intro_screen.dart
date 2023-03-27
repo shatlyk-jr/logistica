@@ -1,7 +1,9 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:connectivity/connectivity.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:logistica/login/sign_in_screen.dart';
 import 'origin_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:introduction_screen/introduction_screen.dart';
@@ -18,10 +20,39 @@ class IntroScreen extends StatefulWidget {
 class IntroScreenState extends State<IntroScreen> {
   final introKey = GlobalKey<IntroductionScreenState>();
 
-  void _onIntroEnd(context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => const OriginPage()),
-    );
+  Future<bool> checkInternetConnection() async {
+    var connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult == ConnectivityResult.mobile ||
+        connectivityResult == ConnectivityResult.wifi) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future _onIntroEnd(context) async {
+    final isConnected = await checkInternetConnection();
+    if (isConnected) {
+      return Navigator.of(context).push(
+        MaterialPageRoute(builder: (_) => SignInScreen()),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24),
+          ),
+          margin: EdgeInsets.only(
+              bottom: MediaQuery.of(context).size.height - 100,
+              right: 20,
+              left: 20),
+          backgroundColor: Colors.red,
+          content: Text(
+              'Internet is not available. Please connect to the internet and try again'),
+        ),
+      );
+    }
   }
 
   Widget _buildImage(String assetName, [double width = 350]) {
@@ -53,6 +84,8 @@ class IntroScreenState extends State<IntroScreen> {
             width: double.infinity,
             height: 60,
             child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blueGrey[700]),
               child: const Text(
                 'Let\'s go right away!',
                 style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
@@ -104,13 +137,16 @@ class IntroScreenState extends State<IntroScreen> {
           showBackButton: true,
           //rtl: true, // Display as right-to-left
           back: const Icon(Icons.arrow_back),
-          skip: const Text('Skip', style: TextStyle(fontWeight: FontWeight.w600)),
+          skip:
+              const Text('Skip', style: TextStyle(fontWeight: FontWeight.w600)),
           next: const Icon(Icons.arrow_forward),
-          done: const Text('Done', style: TextStyle(fontWeight: FontWeight.w600)),
+          done:
+              const Text('Done', style: TextStyle(fontWeight: FontWeight.w600)),
           curve: Curves.fastLinearToSlowEaseIn,
           controlsMargin: const EdgeInsets.all(16),
-          controlsPadding:
-              kIsWeb ? const EdgeInsets.all(12.0) : const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
+          controlsPadding: kIsWeb
+              ? const EdgeInsets.all(12.0)
+              : const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
           dotsDecorator: const DotsDecorator(
             size: Size(10.0, 10.0),
             color: Color(0xFFBDBDBD),
@@ -127,18 +163,6 @@ class IntroScreenState extends State<IntroScreen> {
           ),
         ),
       ],
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Home')),
-      body: const Center(child: Text("This is the screen after Introduction")),
     );
   }
 }

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:logi/appointment/appoint.dart';
-import 'package:logi/cash/cash_app.dart';
-import 'package:logi/trans/trans.dart';
-import 'add_order_screen.dart';
+import 'package:logistica/appointment/appoint.dart';
+import 'package:logistica/appointment/constants.dart';
+import 'package:logistica/trans/trans.dart';
 import 'logi.dart';
 import 'logistic_body_widget.dart';
 import 'logistic_filter_widget.dart';
 import 'logistic_top_bar_widget.dart';
 
 class OriginPage extends StatefulWidget {
-  const OriginPage();
+  const OriginPage(this.userName);
+  final String userName;
 
   @override
   State<OriginPage> createState() => _OriginPageState();
@@ -24,20 +24,18 @@ class _OriginPageState extends State<OriginPage> {
   Widget build(BuildContext context) {
     switch (index) {
       case 0:
-        child = const ShipBody();
+        child = AppointmentPage(widget.userName);
         break;
       case 1:
-        child = const AppointmentPage();
-        break;
-      case 2:
         child = const TransHome();
         break;
-      case 3:
-        child = const CashApp();
-        break;
-      case 4:
+      case 2:
         child = LogiMen();
         break;
+      case 3:
+        child = const ShipBody();
+        break;
+
       default:
     }
     return Scaffold(
@@ -47,7 +45,7 @@ class _OriginPageState extends State<OriginPage> {
           ClipRRect(
         borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
         child: BottomNavigationBar(
-          backgroundColor: const Color.fromARGB(168, 8, 11, 20),
+          backgroundColor: kIndigoDark,
           elevation: 10,
           type: BottomNavigationBarType.fixed,
           onTap: (value) {
@@ -59,34 +57,32 @@ class _OriginPageState extends State<OriginPage> {
           showSelectedLabels: false,
           items: [
             BottomNavigationBarItem(
-              label: 'Ship',
-              icon: index == 0
-                  ? activeIcon('images/ship.svg', size: 28)
-                  : passiveIcon('images/ship.svg', size: 25),
-            ),
-            BottomNavigationBarItem(
               label: 'Appointment',
-              icon: index == 1
+              icon: index == 0
                   ? activeIcon('images/appointment.svg', size: 28)
-                  : passiveIcon('images/appointment.svg', size: 23),
+                  : passiveIcon('images/appointment.svg', size: 25),
             ),
             BottomNavigationBarItem(
-              label: 'Transaction',
-              icon: index == 2
-                  ? activeIcon('images/transaction.svg')
-                  : passiveIcon('images/transaction.svg'),
-            ),
-            BottomNavigationBarItem(
-              label: 'Payments',
-              icon: index == 3 ? activeIcon('images/pay.svg') : passiveIcon('images/pay.svg'),
+              label: 'Shio',
+              icon: index == 1
+                  ? activeIcon('images/transaction.svg', size: 28)
+                  : passiveIcon('images/transaction.svg', size: 23),
             ),
             BottomNavigationBarItem(
               label: 'Orders',
               icon: Icon(
                 Icons.delivery_dining,
-                color: index == 4 ? Colors.green : Colors.blueGrey[300],
-                size: index == 4 ? 30 : 26,
+                color: index == 2
+                    ? Color.fromARGB(255, 30, 230, 36)
+                    : Colors.blueGrey[300],
+                size: index == 2 ? 30 : 26,
               ),
+            ),
+            BottomNavigationBarItem(
+              label: 'Ship',
+              icon: index == 3
+                  ? activeIcon('images/ship.svg')
+                  : passiveIcon('images/ship.svg'),
             ),
           ],
         ),

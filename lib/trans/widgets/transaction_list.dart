@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:logistica/appointment/constants.dart';
 
 import '../models/transaction.dart';
 
@@ -42,6 +43,7 @@ class TransactionList extends StatelessWidget {
                   ),
                   child: ListTile(
                     leading: CircleAvatar(
+                      backgroundColor: kIndigoDark,
                       radius: 30,
                       child: Padding(
                         padding: const EdgeInsets.all(6),

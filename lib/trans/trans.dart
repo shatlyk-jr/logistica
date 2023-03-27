@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:logi/appointment/constants.dart';
+import 'package:logistica/appointment/constants.dart';
 
 import 'models/transaction.dart';
 import 'widgets/chart.dart';
@@ -41,7 +41,8 @@ class TransHomeState extends State<TransHome> {
     }).toList();
   }
 
-  void _addNewTransaction(String txTitle, double txAmount, DateTime chosenDate) {
+  void _addNewTransaction(
+      String txTitle, double txAmount, DateTime chosenDate) {
     final newTx = Transaction(
       title: txTitle,
       amount: txAmount,
@@ -85,7 +86,7 @@ class TransHomeState extends State<TransHome> {
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
         leading: Container(),
-        backgroundColor: Colors.blueGrey[600],
+        backgroundColor: kIndigoDark,
         centerTitle: true,
         title: const Text(
           'Personal Expenses',

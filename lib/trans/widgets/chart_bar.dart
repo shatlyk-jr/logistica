@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:logistica/appointment/constants.dart';
 
 class ChartBar extends StatelessWidget {
   final String label;
@@ -40,7 +41,7 @@ class ChartBar extends StatelessWidget {
                 heightFactor: spendingPctOfTotal,
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor,
+                    color: kIndigoDark,
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),

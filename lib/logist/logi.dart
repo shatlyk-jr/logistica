@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:logi/appointment/constants.dart';
+import 'package:logistica/appointment/constants.dart';
 
 import 'add_order_screen.dart';
 import 'order_details_screen.dart';
@@ -51,7 +51,8 @@ class _OrderListScreenState extends State<OrderListScreen> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => OrderDetailsScreen(order)),
+                MaterialPageRoute(
+                    builder: (context) => OrderDetailsScreen(order)),
               );
             },
           );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:logi/appointment/constants.dart';
+import 'package:logistica/appointment/constants.dart';
 
 class AppointmentCard extends StatelessWidget {
   final double padding;
@@ -8,14 +8,18 @@ class AppointmentCard extends StatelessWidget {
   final String dateTime;
 
   const AppointmentCard(
-      {required this.padding, this.isActive = false, required this.name, required this.dateTime});
+      {required this.padding,
+      this.isActive = false,
+      required this.name,
+      required this.dateTime});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Card(
-        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(16))),
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(16))),
         margin: EdgeInsets.symmetric(horizontal: padding),
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -38,7 +42,8 @@ class AppointmentCard extends StatelessWidget {
                       padding: const EdgeInsets.all(2),
                       child: CircleAvatar(
                         radius: 6,
-                        backgroundColor: isActive ? Colors.green[700] : Colors.transparent,
+                        backgroundColor:
+                            isActive ? Colors.green[700] : Colors.transparent,
                       ),
                     ),
                   )

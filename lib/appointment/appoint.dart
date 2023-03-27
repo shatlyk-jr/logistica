@@ -1,12 +1,14 @@
 // ignore_for_file: ary_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:logi/appointment/components/appointment_card.dart';
-import 'package:logi/appointment/constants.dart';
-import 'package:logi/appointment/pages/appointment_request_page.dart';
+import 'package:logistica/appointment/components/appointment_card.dart';
+import 'package:logistica/appointment/constants.dart';
+import 'package:logistica/appointment/pages/appointment_request_page.dart';
 
 class AppointmentPage extends StatefulWidget {
-  const AppointmentPage();
+  const AppointmentPage(this.userName);
+
+  final String userName;
 
   @override
   AppointmentPageState createState() => AppointmentPageState();
@@ -45,7 +47,10 @@ class AppointmentPageState extends State<AppointmentPage> {
               padding: EdgeInsets.symmetric(horizontal: 28, vertical: 8),
               child: Text(
                 "Next Appointments",
-                style: TextStyle(color: kIndigoLight, fontSize: 13, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                    color: kIndigoLight,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600),
               ),
             ),
           ),
@@ -95,8 +100,8 @@ class AppointmentPageState extends State<AppointmentPage> {
       padding: const EdgeInsets.only(left: 28, right: 28, top: 16, bottom: 8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          Text(
+        children: [
+          const Text(
             "Welcome Back!",
             style: TextStyle(
               color: kIndigoLight,
@@ -107,7 +112,7 @@ class AppointmentPageState extends State<AppointmentPage> {
             height: 6,
           ),
           Text(
-            "Mr Annagurban",
+            'Mr ${widget.userName}',
             style: TextStyle(
               color: kIndigoDark,
               fontSize: 36,
@@ -122,11 +127,12 @@ class AppointmentPageState extends State<AppointmentPage> {
   Widget _buildAppointmentRequestSection() {
     return InkWell(
       onTap: () {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (_) => const AppointmentRequestPage()));
+        Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => const AppointmentRequestPage()));
       },
       child: Card(
-        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20))),
         margin: const EdgeInsets.symmetric(horizontal: 28, vertical: 8),
         elevation: 8,
         child: ClipRRect(
@@ -185,7 +191,8 @@ class AppointmentPageState extends State<AppointmentPage> {
                         Hero(
                             tag: 1,
                             child: ClipRRect(
-                              borderRadius: const BorderRadius.all(Radius.circular(16)),
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(16)),
                               child: Image.asset(
                                 'images/ed.png',
                                 height: 56,
@@ -203,14 +210,17 @@ class AppointmentPageState extends State<AppointmentPage> {
                               Text(
                                 "Mr Batyr",
                                 style: TextStyle(
-                                    color: kIndigoDark, fontSize: 16, fontWeight: FontWeight.w600),
+                                    color: kIndigoDark,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600),
                               ),
                               SizedBox(
                                 height: 4,
                               ),
                               Text(
                                 "Official dealer",
-                                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                                style: TextStyle(
+                                    fontSize: 14, fontWeight: FontWeight.w600),
                               )
                             ],
                           ),
@@ -236,7 +246,8 @@ class AppointmentPageState extends State<AppointmentPage> {
                                 foregroundColor: Colors.white,
                                 backgroundColor: kBlueColor,
                                 shape: const RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20))),
                               ),
                               child: const Text("ACCEPT"),
                             ),
@@ -251,7 +262,8 @@ class AppointmentPageState extends State<AppointmentPage> {
                                 foregroundColor: Colors.grey[700],
                                 backgroundColor: Colors.grey[300],
                                 shape: const RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20))),
                               ),
                               child: const Text(
                                 "DECLINE",

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:logi/appointment/constants.dart';
+import 'package:logistica/appointment/constants.dart';
 
 import 'logi.dart';
 
