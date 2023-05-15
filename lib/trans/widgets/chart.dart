@@ -5,9 +5,7 @@ import './chart_bar.dart';
 import '../models/transaction.dart';
 
 class Chart extends StatelessWidget {
-  const Chart(
-    this.recentTransactions,
-  );
+  const Chart(this.recentTransactions, {super.key});
 
   final List<Transaction> recentTransactions;
 
@@ -54,7 +52,9 @@ class Chart extends StatelessWidget {
               child: ChartBar(
                 data['day'],
                 data['amount'],
-                totalSpending == 0.0 ? 0.0 : (data['amount'] as double) / totalSpending,
+                totalSpending == 0.0
+                    ? 0.0
+                    : (data['amount'] as double) / totalSpending,
               ),
             );
           }).toList(),

@@ -9,7 +9,7 @@ import 'logistic_filter_widget.dart';
 import 'logistic_top_bar_widget.dart';
 
 class OriginPage extends StatefulWidget {
-  const OriginPage(this.userName);
+  const OriginPage(this.userName, {super.key});
   final String userName;
 
   @override
@@ -30,7 +30,7 @@ class _OriginPageState extends State<OriginPage> {
         child = const TransHome();
         break;
       case 2:
-        child = LogiMen();
+        child = const LogiMen();
         break;
       case 3:
         child = const ShipBody();
@@ -73,7 +73,7 @@ class _OriginPageState extends State<OriginPage> {
               icon: Icon(
                 Icons.delivery_dining,
                 color: index == 2
-                    ? Color.fromARGB(255, 30, 230, 36)
+                    ? const Color.fromARGB(255, 30, 230, 36)
                     : Colors.blueGrey[300],
                 size: index == 2 ? 30 : 26,
               ),
@@ -92,9 +92,7 @@ class _OriginPageState extends State<OriginPage> {
 }
 
 class ShipBody extends StatelessWidget {
-  const ShipBody({
-    Key? key,
-  });
+  const ShipBody({super.key});
 
   @override
   Widget build(BuildContext context) {

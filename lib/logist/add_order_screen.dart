@@ -6,13 +6,13 @@ import 'logi.dart';
 class AddOrderScreen extends StatefulWidget {
   final Function addOrder;
 
-  AddOrderScreen(this.addOrder);
+  const AddOrderScreen(this.addOrder, {super.key});
 
   @override
-  _AddOrderScreenState createState() => _AddOrderScreenState();
+  AddOrderScreenState createState() => AddOrderScreenState();
 }
 
-class _AddOrderScreenState extends State<AddOrderScreen> {
+class AddOrderScreenState extends State<AddOrderScreen> {
   final _formKey = GlobalKey<FormState>();
   final _idController = TextEditingController();
   final _customerNameController = TextEditingController();

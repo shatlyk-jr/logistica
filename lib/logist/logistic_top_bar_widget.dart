@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'logistic_filter_widget.dart';
 
 class LogisticTopBarWidget extends StatelessWidget {
-  const LogisticTopBarWidget({Key? key});
+  const LogisticTopBarWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +28,7 @@ class LogisticTopBarWidget extends StatelessWidget {
           ),
           const Spacer(),
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.transparent,
               shape: BoxShape.circle,
             ),

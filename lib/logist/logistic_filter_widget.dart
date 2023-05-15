@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 final isFilterOpen = StateProvider<bool>((ref) => false);
 
 class LogisticFilterWidget extends StatelessWidget {
-  const LogisticFilterWidget({Key? key});
+  const LogisticFilterWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,13 +1,14 @@
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
+
   @override
-  _SignUpScreenState createState() => _SignUpScreenState();
+  SignUpScreenState createState() => SignUpScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class SignUpScreenState extends State<SignUpScreen> {
   final _formKey = GlobalKey<FormState>();
   // final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -17,7 +18,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   // !
   final TextEditingController _emailController = TextEditingController();
-  bool _isEmailValid = true;
 
   bool isEmailValid(String email) {
     // Regular expression to validate email format
@@ -32,28 +32,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   void validateEmail(BuildContext context, String email) {
-    if (!isEmailValid(email)) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Please enter a valid email address'),
-          duration: Duration(seconds: 1),
-          backgroundColor: Colors.red,
-        ),
-      );
-    } else {
-      // Email is valid, continue with your code
-    }
-  }
-
-  void _validateEmail(String email) {
-    setState(() {
-      _isEmailValid = isEmailValid(email);
-    });
-  }
-
-  void _submit() {
-    final String email = _emailController.text.trim();
-
     if (!isEmailValid(email)) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -101,7 +79,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
       setState(() {
         _isLoading = true;
       });
-      // TODO: sign up logic
       setState(() {
         _isLoading = false;
       });

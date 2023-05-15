@@ -5,9 +5,11 @@ import 'add_order_screen.dart';
 import 'order_details_screen.dart';
 
 class LogiMen extends StatelessWidget {
+  const LogiMen({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Shipping App',
       home: OrderListScreen(),
@@ -16,20 +18,22 @@ class LogiMen extends StatelessWidget {
 }
 
 class OrderListScreen extends StatefulWidget {
+  const OrderListScreen({super.key});
+
   @override
-  _OrderListScreenState createState() => _OrderListScreenState();
+  OrderListScreenState createState() => OrderListScreenState();
 }
 
-class _OrderListScreenState extends State<OrderListScreen> {
-  List<Order> _orders = [
-    Order('1', 'John Doe', '123 Main St, Anytown USA', '2022-03-07'),
-    Order('2', 'Jane Smith', '456 Park Ave, Anytown USA', '2022-03-08'),
-    Order('3', 'Bob Johnson', '789 Elm St, Anytown USA', '2022-03-09'),
+class OrderListScreenState extends State<OrderListScreen> {
+  List<Order> orders = [
+    Order('1', 'Aşgabat-Daşoguz', '12/3, Nowruz Köçe', '2022-03-07'),
+    Order('2', 'Balkan-Ashgabat', '21/7, Kemine Köçe', '2022-03-28'),
+    Order('3', 'Aşgabat-Türkmenabat', '74/12, Magdanly Köçe', '2022-04-09'),
   ];
 
   void _addOrder(Order order) {
     setState(() {
-      _orders.add(order);
+      orders.add(order);
     });
   }
 
@@ -37,13 +41,13 @@ class _OrderListScreenState extends State<OrderListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Orders'),
+        title: const Text('Orders'),
         backgroundColor: kBlueColor,
       ),
       body: ListView.builder(
-        itemCount: _orders.length,
+        itemCount: orders.length,
         itemBuilder: (BuildContext context, int index) {
-          final order = _orders[index];
+          final order = orders[index];
           return ListTile(
             title: Text(order.customerName),
             subtitle: Text(order.address),
@@ -67,11 +71,11 @@ class _OrderListScreenState extends State<OrderListScreen> {
           );
           if (result != null) {
             setState(() {
-              _orders.add(result);
+              orders.add(result);
             });
           }
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }

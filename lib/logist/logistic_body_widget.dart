@@ -6,7 +6,7 @@ import 'package:logistica/appointment/constants.dart';
 import 'logistic_filter_widget.dart';
 
 class LogisticBodyWidget extends StatelessWidget {
-  const LogisticBodyWidget({Key? key});
+  const LogisticBodyWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class LogisticBodyWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            "Pickups",
+            "Gelýänler",
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
@@ -37,7 +37,7 @@ class LogisticBodyWidget extends StatelessWidget {
                 Row(
                   // crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CircleAvatar(
+                    const CircleAvatar(
                       radius: 16,
                       backgroundColor: kIndigoDark,
                     ),
@@ -50,7 +50,7 @@ class LogisticBodyWidget extends StatelessWidget {
                             Row(
                               children: const [
                                 Text(
-                                  "Diesel Undeyed",
+                                  "Arassa miti",
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -68,7 +68,7 @@ class LogisticBodyWidget extends StatelessWidget {
                                 )
                               ],
                             ),
-                            const Text('5000g'),
+                            const Text('5t'),
                           ],
                         ),
                       ),
@@ -79,7 +79,7 @@ class LogisticBodyWidget extends StatelessWidget {
                   height: 16,
                 ),
                 const Text(
-                  "Details",
+                  "Goşmaça",
                   style: TextStyle(
                     fontSize: 12,
                   ),
@@ -108,7 +108,7 @@ class LogisticBodyWidget extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text("93 Premium Gas - 1,000g"),
+                            const Text("95 Benzin - 15t"),
                             const SizedBox(
                               height: 4,
                             ),
@@ -142,7 +142,7 @@ class LogisticBodyWidget extends StatelessWidget {
             height: 16,
           ),
           const Text(
-            "Ship to",
+            "Gatnaw ugry",
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
@@ -181,7 +181,7 @@ class LogisticBodyWidget extends StatelessWidget {
                               ),
                             ),
                             padding: const EdgeInsets.all(4),
-                            child: CircleAvatar(
+                            child: const CircleAvatar(
                               backgroundColor: kIndigoDark,
                             ),
                           ),
@@ -223,7 +223,7 @@ class LogisticBodyWidget extends StatelessWidget {
                                   width: 8,
                                 ),
                                 const Text(
-                                  "Ship to: Fedex Freight",
+                                  "Gatnaw ugry: Aşgabat - Mary",
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -234,22 +234,22 @@ class LogisticBodyWidget extends StatelessWidget {
                               height: 16,
                             ),
                             Row(
-                              children: [
+                              children: const [
                                 CircleAvatar(
                                   radius: 16,
                                   backgroundColor: kIndigoDark,
                                   foregroundColor: Colors.white,
-                                  child: const Icon(
+                                  child: Icon(
                                     Icons.route,
                                     size: 14,
                                   ),
                                 ),
-                                const SizedBox(
+                                SizedBox(
                                   width: 8,
                                 ),
-                                const Flexible(
+                                Flexible(
                                   child: Text(
-                                    "ROU/260, 5203 Chin Page Road. Durham NC 27730",
+                                    "Volvo",
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -282,7 +282,7 @@ class LogisticBodyWidget extends StatelessWidget {
                               ),
                             ),
                             padding: const EdgeInsets.all(4),
-                            child: CircleAvatar(
+                            child: const CircleAvatar(
                               backgroundColor: kIndigoDark,
                             ),
                           ),
@@ -324,7 +324,7 @@ class LogisticBodyWidget extends StatelessWidget {
                                   width: 8,
                                 ),
                                 const Text(
-                                  "Ship to: Sauda Oil",
+                                  "Ýük menzili: Balkan",
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -335,22 +335,22 @@ class LogisticBodyWidget extends StatelessWidget {
                               height: 16,
                             ),
                             Row(
-                              children: [
+                              children: const [
                                 CircleAvatar(
                                   radius: 16,
                                   backgroundColor: kIndigoDark,
                                   foregroundColor: Colors.white,
-                                  child: const Icon(
+                                  child: Icon(
                                     Icons.route,
                                     size: 14,
                                   ),
                                 ),
-                                const SizedBox(
+                                SizedBox(
                                   width: 8,
                                 ),
-                                const Flexible(
+                                Flexible(
                                   child: Text(
-                                    "ROU/260, 5203 Chin Page Road. Durham NC 27730",
+                                    "127 Train",
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -374,9 +374,9 @@ class LogisticBodyWidget extends StatelessWidget {
                 ref.read(isFilterOpen.notifier).state = !open;
               },
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: kIndigoDark,
-                  borderRadius: const BorderRadius.only(
+                  borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(8),
                     bottomRight: Radius.circular(8),
                   ),
@@ -386,7 +386,7 @@ class LogisticBodyWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
                     Text(
-                      "Show Ride",
+                      "Gatnawy görkez",
                       style: TextStyle(color: Colors.white, fontSize: 12),
                     ),
                     SizedBox(
