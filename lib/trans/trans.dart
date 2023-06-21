@@ -7,7 +7,7 @@ import 'widgets/new_transaction.dart';
 import 'widgets/transaction_list.dart';
 
 class TransHome extends StatefulWidget {
-  const TransHome();
+  const TransHome({super.key});
 
   // String titleInput;
   // String amountInput;
@@ -85,6 +85,8 @@ class TransHomeState extends State<TransHome> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(15))),
         leading: Container(),
         backgroundColor: kIndigoDark,
         centerTitle: true,

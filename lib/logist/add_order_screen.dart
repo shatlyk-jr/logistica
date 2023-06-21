@@ -1,108 +1,139 @@
 import 'package:flutter/material.dart';
-import 'package:logistica/appointment/constants.dart';
 
+import '../appointment/constants.dart';
 import 'logi.dart';
 
 class AddOrderScreen extends StatefulWidget {
-  final Function addOrder;
+  final Function(Order) onAddOrder;
 
-  const AddOrderScreen(this.addOrder, {super.key});
+  AddOrderScreen(this.onAddOrder);
 
   @override
-  AddOrderScreenState createState() => AddOrderScreenState();
+  _AddOrderScreenState createState() => _AddOrderScreenState();
 }
 
-class AddOrderScreenState extends State<AddOrderScreen> {
+class _AddOrderScreenState extends State<AddOrderScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _idController = TextEditingController();
-  final _customerNameController = TextEditingController();
-  final _addressController = TextEditingController();
-  final _deliveryDateController = TextEditingController();
 
-  void _submitForm() {
-    if (_formKey.currentState!.validate()) {
-      final id = _idController.text;
-      final customerName = _customerNameController.text;
-      final address = _addressController.text;
-      final deliveryDate = _deliveryDateController.text;
-
-      final newOrder = Order(id, customerName, address, deliveryDate);
-      widget.addOrder(newOrder);
-
-      Navigator.pop(context);
-    }
-  }
+  String from = '';
+  String to = '';
+  String address = '';
+  String weight = '';
+  String price = '';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        backgroundColor: kBlueColor,
-        title: Text('Add Order'),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(15))),
+        backgroundColor: kIndigoDark,
+        title: const Text('Add Order'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Form(
-          key: _formKey,
-          child: ListView(
-            shrinkWrap: true,
-            children: [
-              TextFormField(
-                controller: _idController,
-                decoration: InputDecoration(
-                  labelText: 'Order ID',
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                TextFormField(
+                  decoration: const InputDecoration(
+                    labelText: 'From',
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter the origin city';
+                    }
+                    return null;
+                  },
+                  onSaved: (value) {
+                    from = value!;
+                  },
                 ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter an order ID';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _customerNameController,
-                decoration: InputDecoration(
-                  labelText: 'Customer Name',
+                const SizedBox(height: 8.0),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    labelText: 'To',
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter the destination city';
+                    }
+                    return null;
+                  },
+                  onSaved: (value) {
+                    to = value!;
+                  },
                 ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter a customer name';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _addressController,
-                decoration: InputDecoration(
-                  labelText: 'Address',
+                const SizedBox(height: 8.0),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    labelText: 'Address',
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter the address';
+                    }
+                    return null;
+                  },
+                  onSaved: (value) {
+                    address = value!;
+                  },
                 ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter an address';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _deliveryDateController,
-                decoration: InputDecoration(
-                  labelText: 'Delivery Date',
+                const SizedBox(height: 8.0),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    labelText: 'Weight',
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter the weight of the cargo';
+                    }
+                    return null;
+                  },
+                  onSaved: (value) {
+                    weight = value!;
+                  },
                 ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter a delivery date';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(height: 16.0),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: kBlueColor),
-                onPressed: _submitForm,
-                child: Text('Save'),
-              ),
-            ],
+                const SizedBox(height: 8.0),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    labelText: 'Price',
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter the price';
+                    }
+                    return null;
+                  },
+                  onSaved: (value) {
+                    price = value!;
+                  },
+                ),
+                const SizedBox(height: 16.0),
+                ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      _formKey.currentState!.save();
+                      final order = Order(
+                        DateTime.now().millisecondsSinceEpoch.toString(),
+                        from,
+                        to,
+                        address,
+                        weight,
+                        price,
+                        DateTime.now().toString(),
+                      );
+                      widget.onAddOrder(order);
+                      Navigator.pop(context);
+                    }
+                  },
+                  child: const Text('Add Order'),
+                ),
+              ],
+            ),
           ),
         ),
       ),

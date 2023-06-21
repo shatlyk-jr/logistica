@@ -33,10 +33,11 @@ class TransactionList extends StatelessWidget {
           : ListView.builder(
               itemBuilder: (ctx, index) {
                 return Card(
+                  shape: RoundedRectangleBorder(borderRadius: borderAll),
                   elevation: 5,
                   margin: const EdgeInsets.symmetric(
                     vertical: 8,
-                    horizontal: 5,
+                    horizontal: 15,
                   ),
                   child: ListTile(
                     leading: CircleAvatar(

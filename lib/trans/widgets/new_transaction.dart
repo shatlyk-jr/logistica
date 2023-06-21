@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../appointment/constants.dart';
+
 class NewTransaction extends StatefulWidget {
   final Function addTx;
 
@@ -54,6 +56,7 @@ class NewTransactionState extends State<NewTransaction> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      shape: RoundedRectangleBorder(borderRadius: borderAll),
       elevation: 5,
       child: Container(
         padding: const EdgeInsets.all(10),

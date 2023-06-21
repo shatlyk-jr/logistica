@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 const Color kPrimaryColor = Color(0xffffffff);
-const Color kBlueColor = Color.fromARGB(255, 18, 19, 38);
+const Color kBlueColor = Color.fromARGB(255, 40, 14, 70);
 const Color kBlueLight = Color.fromARGB(255, 11, 31, 38);
-const Color kIndigoDark = Color(0xff2c3550);
-const Color kIndigoLight = Color(0xff7080b3);
+const Color kIndigoDark = Color.fromARGB(255, 80, 11, 141);
+const Color kIndigoLight = Color.fromARGB(255, 151, 170, 231);
 
 Map<int, Color> colorMap = {
   50: kIndigoDark.withOpacity(0.1),
@@ -20,3 +20,4 @@ Map<int, Color> colorMap = {
 };
 
 MaterialColor materialColor = MaterialColor(kIndigoDark.value, colorMap);
+BorderRadius borderAll = BorderRadius.circular(15);

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../appointment/constants.dart';
 import './chart_bar.dart';
 import '../models/transaction.dart';
 
@@ -40,6 +41,7 @@ class Chart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      shape: RoundedRectangleBorder(borderRadius: borderAll),
       elevation: 6,
       margin: const EdgeInsets.all(20),
       child: Padding(

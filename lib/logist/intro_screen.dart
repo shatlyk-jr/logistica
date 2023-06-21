@@ -3,15 +3,15 @@
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:logistica/appointment/constants.dart';
 import 'package:logistica/login/sign_in_screen.dart';
-import 'origin_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 final rememberFlag = StateProvider((ref) => false);
 
 class IntroScreen extends StatefulWidget {
-  const IntroScreen();
+  const IntroScreen({super.key});
 
   @override
   IntroScreenState createState() => IntroScreenState();
@@ -34,7 +34,7 @@ class IntroScreenState extends State<IntroScreen> {
     final isConnected = await checkInternetConnection();
     if (isConnected) {
       return Navigator.of(context).push(
-        MaterialPageRoute(builder: (_) => SignInScreen()),
+        MaterialPageRoute(builder: (_) => const SignInScreen()),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -48,7 +48,7 @@ class IntroScreenState extends State<IntroScreen> {
               right: 20,
               left: 20),
           backgroundColor: Colors.red,
-          content: Text(
+          content: const Text(
               'Internet is not available. Please connect to the internet and try again'),
         ),
       );
@@ -85,7 +85,10 @@ class IntroScreenState extends State<IntroScreen> {
             height: 60,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueGrey[700]),
+                  backgroundColor: Colors.blueGrey[700],
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(15), bottom: Radius.zero))),
               child: const Text(
                 'Let\'s go right away!',
                 style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),

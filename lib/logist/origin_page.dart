@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:logistica/appointment/appoint.dart';
 import 'package:logistica/appointment/constants.dart';
+import 'package:logistica/cargo/price_calc.dart';
+import 'package:logistica/inventory/inventory.dart';
 import 'package:logistica/trans/trans.dart';
+import '../profile/profile_page.dart';
 import 'logi.dart';
 import 'logistic_body_widget.dart';
 import 'logistic_filter_widget.dart';
@@ -27,15 +30,17 @@ class _OriginPageState extends State<OriginPage> {
         child = AppointmentPage(widget.userName);
         break;
       case 1:
-        child = const TransHome();
+        child = TransHome();
         break;
       case 2:
         child = const LogiMen();
         break;
       case 3:
-        child = const ShipBody();
+        child = PriceCalculationScreen();
         break;
-
+      case 4:
+        child = ProfilePage();
+        break;
       default:
     }
     return Scaffold(
@@ -45,7 +50,7 @@ class _OriginPageState extends State<OriginPage> {
           ClipRRect(
         borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
         child: BottomNavigationBar(
-          backgroundColor: kIndigoDark,
+          backgroundColor: Color.fromARGB(255, 219, 209, 209),
           elevation: 10,
           type: BottomNavigationBarType.fixed,
           onTap: (value) {
@@ -72,9 +77,8 @@ class _OriginPageState extends State<OriginPage> {
               label: 'Orders',
               icon: Icon(
                 Icons.delivery_dining,
-                color: index == 2
-                    ? const Color.fromARGB(255, 30, 230, 36)
-                    : Colors.blueGrey[300],
+                color:
+                    index == 2 ? kIndigoDark : Color.fromARGB(255, 27, 28, 29),
                 size: index == 2 ? 30 : 26,
               ),
             ),
@@ -83,6 +87,15 @@ class _OriginPageState extends State<OriginPage> {
               icon: index == 3
                   ? activeIcon('images/ship.svg')
                   : passiveIcon('images/ship.svg'),
+            ),
+            BottomNavigationBarItem(
+              label: 'Profile',
+              icon: Icon(
+                Icons.person,
+                color:
+                    index == 4 ? kIndigoDark : Color.fromARGB(255, 27, 28, 29),
+                size: index == 4 ? 30 : 26,
+              ),
             ),
           ],
         ),
@@ -119,7 +132,7 @@ class ShipBody extends StatelessWidget {
 Widget activeIcon(String img, {double size = 32}) {
   return SvgPicture.asset(
     img,
-    color: const Color.fromARGB(255, 98, 255, 130),
+    color: kBlueColor,
     height: size,
     width: size,
   );
@@ -128,7 +141,7 @@ Widget activeIcon(String img, {double size = 32}) {
 Widget passiveIcon(String img, {double size = 28}) {
   return SvgPicture.asset(
     img,
-    color: Colors.blueGrey[300],
+    color: Color.fromARGB(255, 26, 26, 26),
     height: size,
     width: size,
   );

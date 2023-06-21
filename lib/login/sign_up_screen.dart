@@ -1,5 +1,6 @@
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
+import 'package:logistica/appointment/constants.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -92,16 +93,19 @@ class SignUpScreenState extends State<SignUpScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Sign Up'),
+        title: const Text('Sign Up'),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(15))),
       ),
       body: _isLoading
-          ? Center(
+          ? const Center(
               child: CircularProgressIndicator(),
             )
           : Card(
-              color: Color.fromARGB(255, 247, 233, 233),
+              shape: RoundedRectangleBorder(borderRadius: borderAll),
+              color: const Color.fromARGB(255, 247, 233, 233),
               child: Padding(
-                padding: EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(16.0),
                 child: Form(
                   key: _formKey,
                   child: Column(
@@ -110,7 +114,7 @@ class SignUpScreenState extends State<SignUpScreen> {
                       TextFormField(
                         controller: _emailController,
                         keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: 'Email',
                         ),
                         validator: (value) {
@@ -123,7 +127,7 @@ class SignUpScreenState extends State<SignUpScreen> {
                       TextFormField(
                         controller: _passwordController,
                         obscureText: true,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: 'Password',
                         ),
                         validator: (value) {
@@ -136,7 +140,7 @@ class SignUpScreenState extends State<SignUpScreen> {
                       TextFormField(
                         controller: _confirmPasswordController,
                         obscureText: true,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: 'Confirm Password',
                         ),
                         validator: (value) {
@@ -148,7 +152,7 @@ class SignUpScreenState extends State<SignUpScreen> {
                           return null;
                         },
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 16.0,
                       ),
                       Row(
@@ -162,18 +166,21 @@ class SignUpScreenState extends State<SignUpScreen> {
                                   Navigator.of(context).pop();
                                 }
                               },
-                              child: Text('Sign Up'),
+                              child: const Text('Sign Up'),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 16.0,
                           ),
                           Expanded(
                             child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: borderAll)),
                               onPressed: () {
                                 Navigator.pop(context);
                               },
-                              child: Text('Cancel'),
+                              child: const Text('Cancel'),
                             ),
                           ),
                         ],

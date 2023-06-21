@@ -6,7 +6,7 @@ import 'package:logistica/appointment/constants.dart';
 import 'package:logistica/appointment/pages/appointment_request_page.dart';
 
 class AppointmentPage extends StatefulWidget {
-  const AppointmentPage(this.userName);
+  const AppointmentPage(this.userName, {super.key});
 
   final String userName;
 
@@ -19,6 +19,8 @@ class AppointmentPageState extends State<AppointmentPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(15))),
         backgroundColor: const Color(0xffF3F6FF),
         iconTheme: const IconThemeData(
           color: kIndigoDark,
@@ -108,12 +110,12 @@ class AppointmentPageState extends State<AppointmentPage> {
               fontSize: 22,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 6,
           ),
           Text(
             'Mr ${widget.userName}',
-            style: TextStyle(
+            style: const TextStyle(
               color: kIndigoDark,
               fontSize: 36,
               fontWeight: FontWeight.bold,

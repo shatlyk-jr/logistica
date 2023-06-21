@@ -2,20 +2,19 @@ import 'dart:async';
 
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:logistica/appointment/constants.dart';
-import 'package:logistica/logist/intro_screen.dart';
-import 'package:logistica/logist/log_app.dart';
 import 'package:logistica/logist/origin_page.dart';
 
 import 'sign_up_screen.dart';
 
 class SignInScreen extends StatefulWidget {
+  const SignInScreen({super.key});
+
   @override
-  _SignInScreenState createState() => _SignInScreenState();
+  SignInScreenState createState() => SignInScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class SignInScreenState extends State<SignInScreen> {
   final _formKey = GlobalKey<FormState>();
   // final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -130,6 +129,8 @@ class _SignInScreenState extends State<SignInScreen> {
       home: Scaffold(
         appBar: AppBar(
           centerTitle: true,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(15))),
           title: const Text('Sign In'),
         ),
         body: _isLoading
@@ -137,6 +138,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 child: CircularProgressIndicator(),
               )
             : Card(
+                shape: RoundedRectangleBorder(borderRadius: borderAll),
                 color: Colors.white70,
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
@@ -195,6 +197,10 @@ class _SignInScreenState extends State<SignInScreen> {
                           children: <Widget>[
                             Expanded(
                               child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                  borderRadius: borderAll,
+                                )),
                                 onPressed: () {
                                   if (_formKey.currentState!.validate()) {
                                     _signIn();
@@ -215,6 +221,9 @@ class _SignInScreenState extends State<SignInScreen> {
                             ),
                             Expanded(
                               child: OutlinedButton(
+                                style: OutlinedButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: borderAll)),
                                 onPressed: () {
                                   Navigator.push(
                                     context,
@@ -225,7 +234,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                             colorScheme: ColorScheme.fromSwatch(
                                                 primarySwatch: materialColor),
                                           ),
-                                          child: SignUpScreen()),
+                                          child: const SignUpScreen()),
                                     ),
                                   );
                                 },
