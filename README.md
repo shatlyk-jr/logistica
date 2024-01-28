@@ -3,19 +3,19 @@
 Welcome to my Logistics Management System app, one of my simple projects that I've done. This application helps streamline various logistics processes, including appointment scheduling, personal expenses tracking, order management, and shipping/cargo information. 
 
 ## Screenshots
-
-![](screenshots/1.png)
-![](screenshots/2.png)
-![](screenshots/3.png)
-![](screenshots/4.png)
-![](screenshots/5.png)
-![](screenshots/6.png)
-![](screenshots/6.5.png)
-![](screenshots/7.png)
-![](screenshots/8.png)
-![](screenshots/9.png)
-![](screenshots/10.png)
-![](screenshots/11.png)
+1
+![1](screenshots/1.png)
+![2](screenshots/2.png)
+![3](screenshots/3.png)
+![4](screenshots/4.png)
+![5](screenshots/5.png)
+![6](screenshots/6.png)
+![7](screenshots/6.5.png)
+![8](screenshots/7.png)
+![9](screenshots/8.png)
+![10](screenshots/9.png)
+![11](screenshots/10.png)
+![12](screenshots/11.png)
 
 
 ## Getting Started
@@ -25,13 +25,13 @@ To run the app locally, follow these steps:
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/shatlyk-jr/e-nano-dict
+    git clone https://github.com/shatlyk-jr/logistica.git
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd e-nano-dict
+    cd logistica
     ```
 
 3. Install dependencies:
